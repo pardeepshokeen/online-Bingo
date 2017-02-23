@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app = "bingo">
+<head>
+	<title>Bingo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src = "socketioclient.js"></script>
+	<script src = "angular.min.js" ></script>
+
+	<script src = "app.js"></script>
+	<link href = "style.css" rel = "stylesheet">
+
+</head>
+<body ng-controller="mainCtrl">
+ <div id = "id1" ng-show ="same.show ==1">
+ <h2> {{same.message1}}</h2>
+ <button ng-click = "same.willtoplay()"> Play now </button>
+ </div>
+ <div ng-show = "same.show == 2">
+  <p class = "message"> {{same.message}}</p>
+ 
+ <div ng-repeat="(key, value) in same.matrix track by $index">
+<a  ng-repeat="(key2, value2) in same.matrix[key] track by $index" ng-class = "{'num':true,'crossed':!same.matrix[key][key2]}
+ " ng-click = "same.numClick(value2)">
+  {{value2}}
+  </a>
+
+   
+  <br>
+ </div>
+
+   <hr>
+ 
+
+
+ </div>
+
+
+ <div ng-show = "same.show ==3">
+ </div>
+
+
+
+
+
+</body>
+</html>
